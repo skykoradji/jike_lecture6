@@ -15,15 +15,15 @@ const todos = (state = initialState, action) => {
       ];
     case TOGGLE_TODO:
       return state.map(todo => {
-        if(todo.id === action.id) {
+        if (todo.id === action.id) {
           return { ...todo, completed: !todo.completed };
         } else {
           return todo;
         }
       });
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default todos
+export default todos;

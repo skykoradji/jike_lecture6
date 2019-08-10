@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import actions from './actions';
 
-
 const mapStateToProps = state => {
   return {
     todos: state.todosReducer,
@@ -14,6 +13,6 @@ function connectRedux(Component) {
     mapStateToProps,
     actions
   )(Component);
-};
+}
 
 export default connectRedux;

@@ -11,6 +11,6 @@ const filterBy = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default filterBy;

@@ -1,4 +1,3 @@
-
 import { ADD_TODO, TOGGLE_TODO } from '../types';
 
 /**
@@ -9,28 +8,26 @@ Actions looks like this ->
  */
 
 // add todo and update state;
-const addTodo = (text) => {
+const addTodo = text => {
   return function(dispatch) {
     dispatch({
       type: ADD_TODO,
-      id: Math.random(), 
+      id: Math.random(),
       text
     });
-  }
+  };
 };
 
-const toogleTodo = (id) => {
+const toogleTodo = id => {
   return dispatch => {
     dispatch({
       type: TOGGLE_TODO,
       id
     });
-  }
-}
-
+  };
+};
 
 export default {
   addTodo,
   toogleTodo
 };
-

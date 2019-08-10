@@ -1,0 +1,99 @@
+import React, { Component } from 'react';
+import {
+  Grid,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Typography,
+  Button
+} from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import restClient from '../../lib/restClient';
+import Loader from '../Loader';
+
+const styles = {
+  courseGrid: {
+    padding: 10
+  },
+  courseCard: {
+    cursor: 'pointer',
+    height: '100%',
+    maxHeight: 400,
+    position: 'relative'
+  }
+};
+
+class Courses extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loaded: false,
+      courses: []
+    };
+    this.viewCourseDetail = this.viewCourseDetail.bind(this);
+  }
+  async componentDidMount() {
+    try {
+      const response = await restClient().get('courses');
+      this.setState({ courses: response.data, loaded: true });
+    } catch (err) {}
+  }
+
+  viewCourseDetail(id) {
+    const { history } = this.props;
+    history.push(`/courses/${id}`);
+  }
+
+  render() {
+    const { classes } = this.props;
+    const { courses, loaded } = this.state;
+    if (!loaded) return <Loader />;
+
+    return (
+      <Grid
+        container
+        direction="row"
+        justify="flex-start"
+        alignContent="stretch"
+        alignItems="stretch"
+      >
+        {courses.map(course => (
+          <Grid item md={4} sm={6} xs={12} className={classes.courseGrid} key={course.CourseId}>
+            <Card
+              className={classes.courseCard}
+              onClick={e => this.viewCourseDetail(course.CourseId)}
+            >
+              <CardActionArea>
+                {course.CoverImage && (
+                  <CardMedia
+                    component="img"
+                    alt={course.CourseName}
+                    height="140"
+                    image={course.CoverImage}
+                    title={course.CourseName}
+                  />
+                )}
+
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {course.SubTitle}
+                  </Typography>
+                  <Typography component="p">{course.CourseBrief}</Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Button size="small" color="primary">
+                  Learn More
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    );
+  }
+}
+
+export default withStyles(styles)(Courses);

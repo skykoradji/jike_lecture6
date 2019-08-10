@@ -1,24 +1,27 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
+import React, { Fragment } from 'react';
+import ReactDOM from 'react-dom';
+import * as serviceWorker from './serviceWorker';
+import AppRouter from './router';
 
-import Filter from './component/Filter';
-import AddTodo from './component/AddTodo';
-import VisibleTodoList from './component/TodoList';
-import Test from './component/Test';
-import configureStore from './redux';
-const { store, persistor } = configureStore();
+// const item = new Object();
+// console.log(item);
 
 const App = () => (
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <AddTodo />
-      <VisibleTodoList />
-      <Filter />
-      <Test />
-    </PersistGate>
-  </Provider>
+  <Fragment>
+    <AppRouter />
+  </Fragment>
 );
 
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.unregister();
+
+/**
+ * https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+ * Progressive web apps that have been added to the homescreen 
+ * will load faster and work offline when there's an active service worker.
+ */
+

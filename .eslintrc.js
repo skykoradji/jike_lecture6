@@ -43,13 +43,5 @@ module.exports = {
     browser: true,
     jest: true,
     node: true
-  },
-  settings: {
-    'import/resolver': {
-      'babel-module': {
-        root: ['./'],
-        extensions: ['.js', '.tsx', '.ts']
-      }
-    }
   }
 };

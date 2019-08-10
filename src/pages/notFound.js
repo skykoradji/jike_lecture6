@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-
+import { withStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import withLayout from '../lib/withLayout';
-import { withStyles } from '@material-ui/core/styles';
+
 
 const styles = {
   container: {
@@ -14,10 +14,10 @@ const styles = {
   }
 };
 
-const NotFound = props => (
+const NotFound = ({ classes }) => (
   <Fragment>
-    <div className={props.classes.container}>
-      <Typography variant="h3" color="primary" className={props.classes.pageTitle}>
+    <div className={classes.container}>
+      <Typography variant="h3" color="primary" className={classes.pageTitle}>
         404
       </Typography>
       <br />

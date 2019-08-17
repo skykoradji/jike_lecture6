@@ -32,17 +32,16 @@ const styles = theme => ({
 });
 
 function Header({ classes, user, history, deauthenticate }) {
-
   const login = () => {
     history.push('/login');
   };
   const signup = () => {
-    history.push('/signup')
+    history.push('/signup');
   };
-  
+
   const createACourse = () => {
-    history.push('/create-a-course')
-  }
+    history.push('/create-a-course');
+  };
   return (
     <AppBar position="static" classes={{ root: classes.root }}>
       <Toolbar>
@@ -55,12 +54,7 @@ function Header({ classes, user, history, deauthenticate }) {
           <Grid item sm={5} xs={10} style={{ textAlign: 'right' }}>
             <Fragment>
               {!_.isEmpty(user) && user.Role === 'Instructor' && (
-                <Button
-                  size="small"
-                  color="primary"
-                  variant="contained"
-                  onClick={createACourse}
-                >
+                <Button size="small" color="primary" variant="contained" onClick={createACourse}>
                   Create a course
                 </Button>
               )}

@@ -2,7 +2,7 @@ import { AUTHENTICATE, DEAUTHENTICATE } from '../types';
 import restClient from '../../restClient';
 
 // gets the token from the cookie and saves it in the store
-const authenticate = (payload) => {
+const authenticate = payload => {
   return dispatch => {
     dispatch({ type: AUTHENTICATE, payload });
   };

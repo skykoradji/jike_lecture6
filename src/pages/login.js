@@ -65,8 +65,8 @@ class LoginPage extends Component {
       const response = await restClient().post('signin', { userName: username, password });
 
       const { token, role, uniqueId } = response.data;
-     
-      const { authenticate, updateUser , history } = this.props;
+
+      const { authenticate, updateUser, history } = this.props;
       localStorage.setItem('token', token);
       localStorage.setItem('uniqueId', uniqueId);
       authenticate(response.data);
@@ -84,7 +84,7 @@ class LoginPage extends Component {
   signup = () => {
     const { history } = this.props;
     history.push('/signup');
-  }
+  };
   render() {
     const { classes } = this.props;
     const { submitted, username, password } = this.state;

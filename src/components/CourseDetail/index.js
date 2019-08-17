@@ -14,8 +14,6 @@ import { withStyles } from '@material-ui/core/styles';
 import restClient from '../../lib/restClient';
 import Loader from '../Loader';
 
-
-
 const styles = theme => ({
   courseCard: {
     cursor: 'pointer',
@@ -53,7 +51,7 @@ class CourseDetail extends Component {
   }
 
   finishUpload(coverImage) {
-    this.setState((state) => {
+    this.setState(state => {
       const updated = state;
       // update course CoverImage
       updated.course.coverImage = coverImage;
@@ -120,14 +118,13 @@ class CourseDetail extends Component {
       );
     }
 
-
     if (this.hasSubscribed()) {
       return (
         <Button size="small" color="primary" onClick={this.unsubscribe}>
           Unsubscribe
         </Button>
       );
-    } 
+    }
     return (
       <Button size="small" color="primary" onClick={this.subscribe}>
         Subscribe
@@ -138,8 +135,8 @@ class CourseDetail extends Component {
   redirectAllCourses = () => {
     const { history } = this.props;
     history.push('/');
-  }
-  
+  };
+
   render() {
     const { classes, user } = this.props;
     const { course, loaded } = this.state;
@@ -157,7 +154,7 @@ class CourseDetail extends Component {
               title="Contemplative Reptile"
             />
           )}
-          
+
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {course.courseName}
@@ -186,9 +183,6 @@ class CourseDetail extends Component {
             {!_.isEmpty(user) && this.hasSubscribed() && (
               <Typography>Subscribed already</Typography>
             )}
-
-           
-
           </CardContent>
 
           <CardActions>

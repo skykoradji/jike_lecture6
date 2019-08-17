@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Courses from '../components/Courses';
 import withLayout from '../lib/withLayout';
 
-
 const styles = {
   headline: {
     marginTop: 30,
@@ -23,8 +22,8 @@ function Home({ classes, history }) {
         Development
       </Typography>
       <Typography className={classes.subtitle} variant="h6" component="p">
-        Get the Technology and Creative Skills you need to launch a career by learning from
-        industry experts.
+        Get the Technology and Creative Skills you need to launch a career by learning from industry
+        experts.
       </Typography>
 
       <Courses history={history} />

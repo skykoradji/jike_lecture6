@@ -79,15 +79,14 @@ class SignUp extends Component {
 
         const { UID, AuthToken, Role } = loginResponse.data;
         const { authenticate, updateUser, history } = this.props;
-          localStorage.setItem('authToken', AuthToken);
-          localStorage.setItem('uid', UID);
-          authenticate(UID, AuthToken);
-          const profileResponse = await restClient().get('profile');
+        localStorage.setItem('authToken', AuthToken);
+        localStorage.setItem('uid', UID);
+        authenticate(UID, AuthToken);
+        const profileResponse = await restClient().get('profile');
 
-          updateUser({ ...profileResponse.data, Role });
+        updateUser({ ...profileResponse.data, Role });
 
-          history.push('/');
-        
+        history.push('/');
       })
       .catch(() => {
         this.setState({ submitted: false });

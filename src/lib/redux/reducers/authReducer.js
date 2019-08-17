@@ -3,7 +3,7 @@ import { AUTHENTICATE, DEAUTHENTICATE } from '../types';
 const initialState = {
   uid: null,
   token: null,
-  firstName: null, 
+  firstName: null,
   lastName: null,
   isLoggedIn: false
 };

@@ -10,7 +10,6 @@ import CourseDetail from '../pages/courseDetail';
 import configureStore from '../lib/redux';
 const { store, persistor } = configureStore();
 
-
 const AppRouter = () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
@@ -25,7 +24,7 @@ const AppRouter = () => (
           </Switch>
         </div>
       </BrowserRouter>
-     </PersistGate>
+    </PersistGate>
   </Provider>
 );
 

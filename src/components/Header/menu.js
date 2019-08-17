@@ -72,12 +72,12 @@ class MenuDrop extends Component {
             <ListItem button component="button" onClick={() => history.push('/profile')}>
               <ListItemText primary="My Profile" />
             </ListItem>
-            { user.role === 'Students' && (
+            {user.role === 'Students' && (
               <ListItem button component="button" onClick={() => history.push('/profile')}>
                 <ListItemText primary="Course subscriptions" />
               </ListItem>
             )}
-            
+
             <ListItem button onClick={deauthenticate}>
               <ListItemText primary="Logout" />
             </ListItem>

@@ -61,7 +61,6 @@ function withRoot(Component) {
     mapStateToProps,
     actions
   )(App);
-
 }
 
 export default withRoot;

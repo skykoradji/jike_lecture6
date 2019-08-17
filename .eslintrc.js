@@ -7,7 +7,13 @@ module.exports = {
     },
     sourceType: 'module'
   },
-  extends: ['airbnb', 'prettier', 'prettier/react', 'eslint:recommended', 'plugin:react/recommended'],
+  extends: [
+    'airbnb',
+    'prettier',
+    'prettier/react',
+    'eslint:recommended',
+    'plugin:react/recommended'
+  ],
   plugins: ['react'],
   rules: {
     'react/jsx-filename-extension': 0,
@@ -29,9 +35,9 @@ module.exports = {
       }
     ],
     // Require the use of === and !==
-    "eqeqeq": 2,
+    eqeqeq: 2,
     // Disallow await inside of loops
-    "no-await-in-loop": 2,
+    'no-await-in-loop': 2,
     'no-plusplus': 0,
     'no-else-return': ['error', { allowElseIf: true }],
     'import/no-named-as-default': 0

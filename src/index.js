@@ -21,7 +21,6 @@ serviceWorker.unregister();
 
 /**
  * https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
- * Progressive web apps that have been added to the homescreen 
+ * Progressive web apps that have been added to the homescreen
  * will load faster and work offline when there's an active service worker.
  */
-

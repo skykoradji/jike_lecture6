@@ -48,9 +48,9 @@ class SignUp extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
-    const { password } = this.state;
+  componentDidMount() {
     ValidatorForm.addValidationRule('isPasswordMatch', value => {
+      const { password } = this.state;
       if (value !== password) {
         return false;
       }
@@ -67,7 +67,7 @@ class SignUp extends Component {
     this.setState({ submitted: true });
 
     restClient()
-      .post(`profile`, {
+      .post(`userprofile`, {
         Email: email,
         Password: password,
         FirstName: firstName,
@@ -75,17 +75,17 @@ class SignUp extends Component {
         Role: role
       })
       .then(async () => {
-        const loginResponse = await restClient().post('signin', { userName: email, password });
+        const response = await restClient().post('signin', { userName: email, password });
 
-        const { UID, AuthToken, Role } = loginResponse.data;
+        const { token, role, uniqueId } = response.data;
+
         const { authenticate, updateUser, history } = this.props;
-        localStorage.setItem('authToken', AuthToken);
-        localStorage.setItem('uid', UID);
-        authenticate(UID, AuthToken);
-        const profileResponse = await restClient().get('profile');
-
-        updateUser({ ...profileResponse.data, Role });
-
+        localStorage.setItem('token', token);
+        localStorage.setItem('uniqueId', uniqueId);
+        authenticate(response.data);
+        const profile = await restClient().get(`userprofile/${uniqueId}`);
+  
+        updateUser({ ...profile.data, role });
         history.push('/');
       })
       .catch(() => {

@@ -68,23 +68,23 @@ class LoginPage extends Component {
      
       const { authenticate, updateUser , history } = this.props;
       localStorage.setItem('token', token);
-      localStorage.setItem('uid', uniqueId);
-      console.log(this.props);
+      localStorage.setItem('uniqueId', uniqueId);
       authenticate(response.data);
       const profile = await restClient().get(`userprofile/${uniqueId}`);
 
       updateUser({ ...profile.data, role });
 
       history.push('/');
-      
-
-      // window.location.href = '/';
     } catch (err) {
       console.log(err);
       this.setState({ submitted: false });
     }
   }
 
+  signup = () => {
+    const { history } = this.props;
+    history.push('/signup');
+  }
   render() {
     const { classes } = this.props;
     const { submitted, username, password } = this.state;
@@ -152,7 +152,7 @@ class LoginPage extends Component {
             variant="text"
             color="primary"
             size="small"
-            href="/signup"
+            onClick={this.signup}
           >
             Sign up
           </Button>

@@ -49,10 +49,10 @@ class MenuDrop extends Component {
             aria-haspopup="true"
             onClick={this.handleClick}
             onKeyPress={this.handleClick}
-            alt={user.FirstName}
+            alt={user.firstName}
             className={classes.usernameAvatar}
           >
-            {user.FirstName.charAt(0)}
+            {user.firstName.charAt(0)}
           </Avatar>
         </div>
         <Popover
@@ -72,7 +72,7 @@ class MenuDrop extends Component {
             <ListItem button component="button" onClick={() => history.push('/profile')}>
               <ListItemText primary="My Profile" />
             </ListItem>
-            { user.Role === 'Students' && (
+            { user.role === 'Students' && (
               <ListItem button component="button" onClick={() => history.push('/profile')}>
                 <ListItemText primary="Course subscriptions" />
               </ListItem>

@@ -60,27 +60,27 @@ class Courses extends Component {
         alignItems="stretch"
       >
         {courses.map(course => (
-          <Grid item md={4} sm={6} xs={12} className={classes.courseGrid} key={course.CourseId}>
+          <Grid item md={4} sm={6} xs={12} className={classes.courseGrid} key={course.courseId}>
             <Card
               className={classes.courseCard}
-              onClick={e => this.viewCourseDetail(course.CourseId)}
+              onClick={e => this.viewCourseDetail(course.courseId)}
             >
               <CardActionArea>
-                {course.CoverImage && (
+                {course.coverImage && (
                   <CardMedia
                     component="img"
-                    alt={course.CourseName}
+                    alt={course.courseName}
                     height="140"
-                    image={course.CoverImage}
-                    title={course.CourseName}
+                    image={course.coverImage}
+                    title={course.courseName}
                   />
                 )}
 
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
-                    {course.SubTitle}
+                    {course.subTitle}
                   </Typography>
-                  <Typography component="p">{course.CourseBrief}</Typography>
+                  <Typography component="p">{course.courseBrief}</Typography>
                 </CardContent>
               </CardActionArea>
               <CardActions>

@@ -5,12 +5,11 @@ const restClient = () => {
   // Create instance
   const instance = axios.create();
   // const uid = localStorage.getItem('uid');
-  // const authToken = localStorage.getItem('authToken');
+  const token = localStorage.getItem('token');
   // Set the AUTH token for any request
   instance.interceptors.request.use(axiosConfig => {
     const current = axiosConfig;
-    // current.headers.UID = uid;
-    // current.headers.AuthToken = authToken;
+    current.headers.Authorization = `Bearer ${token}`;
     current.url = `${API}/${axiosConfig.url}`;
     return current;
   });

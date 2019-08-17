@@ -1,20 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-// import { Provider } from 'react-redux';
-// import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import NotFound from '../pages/notFound';
 import Login from '../pages/login';
 import Signup from '../pages/signup';
 import Home from '../pages/home';
 import CourseDetail from '../pages/courseDetail';
-
-// import configureStore from '../lib/redux';
-// const { store, persistor } = configureStore();
+import configureStore from '../lib/redux';
+const { store, persistor } = configureStore();
 
 
 const AppRouter = () => (
-  // <Provider store={store}>
-  //   <PersistGate loading={null} persistor={persistor}>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         <div>
           <Switch>
@@ -26,8 +25,8 @@ const AppRouter = () => (
           </Switch>
         </div>
       </BrowserRouter>
-  //   </PersistGate>
-  // </Provider>
+     </PersistGate>
+  </Provider>
 );
 
 export default AppRouter;

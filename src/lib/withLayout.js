@@ -1,10 +1,18 @@
 import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { purple, green } from '@material-ui/core/colors';
+import { connect } from 'react-redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import actions from './redux/actions';
 
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+    authentication: state.authentication
+  };
+};
 
 // A theme with custom primary and secondary color.
 // It's optional.
@@ -49,7 +57,11 @@ function withRoot(Component) {
     );
   }
 
-  return App;
+  return connect(
+    mapStateToProps,
+    actions
+  )(App);
+
 }
 
 export default withRoot;

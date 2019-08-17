@@ -64,22 +64,23 @@ class LoginPage extends Component {
     try {
       const response = await restClient().post('signin', { userName: username, password });
 
-      const { UID, AuthToken, Role, Message } = response.data;
-      if (Message === 'Success') {
-        localStorage.setItem('authToken', AuthToken);
-        localStorage.setItem('uid', UID);
-        this.props.authenticate(UID, AuthToken);
-        const response = await restClient().get('profile');
+      const { token, role, uniqueId } = response.data;
+     
+      const { authenticate, updateUser , history } = this.props;
+      localStorage.setItem('token', token);
+      localStorage.setItem('uid', uniqueId);
+      console.log(this.props);
+      authenticate(response.data);
+      const profile = await restClient().get(`userprofile/${uniqueId}`);
 
-        this.props.updateUser({ ...response.data, Role });
+      updateUser({ ...profile.data, role });
 
-        this.props.history.push('/');
-      } else {
-        this.setState({ submitted: false });
-      }
+      history.push('/');
+      
 
       // window.location.href = '/';
     } catch (err) {
+      console.log(err);
       this.setState({ submitted: false });
     }
   }

@@ -56,7 +56,7 @@ class CourseDetail extends Component {
     this.setState((state) => {
       const updated = state;
       // update course CoverImage
-      updated.course.CoverImage = coverImage;
+      updated.course.coverImage = coverImage;
       return updated;
     });
   }
@@ -148,40 +148,40 @@ class CourseDetail extends Component {
     return (
       <div style={{ marginTop: 20, paddingTop: 30, maxWidth: 1000, margin: '0 auto' }}>
         <Card className={classes.courseCard}>
-          {course.CoverImage && (
+          {course.coverImage && (
             <CardMedia
               component="img"
               alt="Contemplative Reptile"
               height="200"
-              image={course.CoverImage}
+              image={course.coverImage}
               title="Contemplative Reptile"
             />
           )}
           
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              {course.CourseName}
+              {course.courseName}
             </Typography>
             <Typography gutterBottom variant="h4" component="h4">
-              {course.SubTitle}
+              {course.subTitle}
             </Typography>
 
-            <Typography component="p">Course Code: {course.CourseCode}</Typography>
-            <Typography component="p">Brief: {course.CourseBrief}</Typography>
+            <Typography component="p">Course Code: {course.courseCode}</Typography>
+            <Typography component="p">Brief: {course.courseBrief}</Typography>
 
-            <Typography component="p">Course Duration: {course.CourseDuration} minutes</Typography>
+            <Typography component="p">Course Duration: {course.courseDuration} minutes</Typography>
 
-            <Typography component="p">Target Audience: {course.TargetAudiences}</Typography>
+            <Typography component="p">Target Audience: {course.targetAudiences}</Typography>
 
-            <Typography component="p">Course Detail: {course.CourseDetails}</Typography>
+            <Typography component="p">Course Detail: {course.courseDetails}</Typography>
 
-            <Typography component="p">Knowledge Points: {course.KnowledgePoints}</Typography>
+            <Typography component="p">Knowledge Points: {course.knowledgePoints}</Typography>
 
             <Typography component="p">
-              Start Date: {moment(course.JoinDate).format('YYYY-MM-DD')}
+              Start Date: {moment(course.joinDate).format('YYYY-MM-DD')}
             </Typography>
 
-            {this.displayTag(course.CourseTags)}
+            {this.displayTag(course.courseTags)}
 
             {!_.isEmpty(user) && this.hasSubscribed() && (
               <Typography>Subscribed already</Typography>

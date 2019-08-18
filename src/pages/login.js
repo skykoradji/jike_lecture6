@@ -65,7 +65,7 @@ class LoginPage extends Component {
       const response = await restClient().post('signin', { userName: username, password });
 
 
-      if(response == "abc") {
+      if(response == "adc") {
         console.log('eslint error');
       }
       const { token, role, uniqueId } = response.data;

@@ -84,7 +84,7 @@ class SignUp extends Component {
         localStorage.setItem('uniqueId', uniqueId);
         authenticate(response.data);
         const profile = await restClient().get(`userprofile/${uniqueId}`);
-  
+
         updateUser({ ...profile.data, role });
         history.push('/');
       })
@@ -104,7 +104,7 @@ class SignUp extends Component {
 
         <Grid container justify="center">
           <Grid item xs={12}>
-            <ValidatorForm className={classes.signupForm} ref="form" onSubmit={this.handleSubmit}>
+            <ValidatorForm className={classes.signupForm} onSubmit={this.handleSubmit}>
               <TextValidator
                 fullWidth
                 required
@@ -164,7 +164,6 @@ class SignUp extends Component {
               >
                 <MenuItem value="Student">Student</MenuItem>
                 <MenuItem value="Instructor">Instructor</MenuItem>
-                ))}
               </SelectValidator>
 
               <TextValidator

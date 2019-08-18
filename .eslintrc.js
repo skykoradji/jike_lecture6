@@ -1,12 +1,14 @@
 module.exports = {
   parserOptions: {
-    ecmaVersion: 8,
+    ecmaVersion: 2018,
     ecmaFeatures: {
+      arrowFunctions: true,
       experimentalObjectRestSpread: true,
       jsx: true
     },
     sourceType: 'module'
   },
+  parser: 'babel-eslint',
   extends: [
     'airbnb',
     'prettier',
@@ -16,6 +18,7 @@ module.exports = {
   ],
   plugins: ['react'],
   rules: {
+    'no-console': 0,
     'react/jsx-filename-extension': 0,
     'react/prop-types': 0, // TODO: We will be using flow typing instead (once app code stabilises more)
     'react/prefer-stateless-function': 0, // Sometimes we prefer PureComponent for performance reasons
@@ -48,6 +51,7 @@ module.exports = {
   env: {
     browser: true,
     jest: true,
+    es6: true,
     node: true
   }
 };

@@ -10,6 +10,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.1",
@@ -24,6 +25,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-standard": "^4.0.0",
+    "husky": "^3.0.4",
     "jest": "^24.8.0",
     "lint-staged": "^8.1.7",
     "prettier": "^1.17.1",
@@ -36,6 +38,7 @@
     "@material-ui/icons": "^3.0.2",
     "axios": "^0.18.0",
     "config": "^3.1.0",
+    "eslint-config-standard-react": "^8.0.0",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
@@ -49,13 +52,6 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0"
   },
-  "lint-staged": {
-    "*.js": [
-      "npm run prettier",
-      "eslint --fix",
-      "git add"
-    ]
-  },
   "scripts": {
     "prettier": "prettier \"{,**/}*.js\" --write",
     "precommit": "lint-staged",
@@ -64,6 +60,13 @@
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run prettier",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "author": "",
   "license": "ISC"

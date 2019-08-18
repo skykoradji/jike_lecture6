@@ -64,10 +64,6 @@ class LoginPage extends Component {
     try {
       const response = await restClient().post('signin', { userName: username, password });
 
-
-      if(response == "ad") {
-        console.log('eslint error');
-      }
       const { token, role, uniqueId } = response.data;
 
       const { authenticate, updateUser, history } = this.props;
@@ -101,7 +97,7 @@ class LoginPage extends Component {
 
           <Grid container justify="center">
             <Grid item xs={12}>
-              <ValidatorForm className={classes.loginForm} ref="form" onSubmit={this.handleSubmit}>
+              <ValidatorForm className={classes.loginForm} onSubmit={this.handleSubmit}>
                 <TextValidator
                   required
                   fullWidth
